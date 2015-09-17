@@ -1,0 +1,17 @@
+---
+- hosts: all
+  user: vagrant
+  sudo: True
+  roles:
+    - role: network_interface
+      network_ether_interfaces:
+        - device: eth1
+          bootproto: static
+          address: 192.168.33.10
+          netmask: 255.255.255.0
+          gateway: 192.168.33.1
+      network_vlan_interfaces:
+        - device: eth1.2
+          bootproto: static
+          address: 192.168.20.18
+          netmask: 255.255.255.0
